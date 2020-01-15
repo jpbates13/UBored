@@ -8,33 +8,36 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/eventTextDisplay"
+        android:layout_width="256dp"
+        android:layout_height="164dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginRight="76dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/NotInterestedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="104dp"
         android:backgroundTint="#3399FF"
-        android:text="@android:string/yes"
+        android:text="Not Interested"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="578dp"
-        tools:text="@android:string/yes" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/interestedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="104dp"
         android:backgroundTint="#3399FF"
-        android:text="@android:string/no"
+        android:text="Interested"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="260dp"
-        tools:layout_editor_absoluteY="578dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

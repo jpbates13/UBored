@@ -9,10 +9,16 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // pull the data from the JSON file and store the data in queue.
+
+
     }
 
     private class TouchListener implements View.OnTouchListener{
