@@ -2,14 +2,16 @@ package com.example.ubored;
 import com.google.gson.*;
 
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Queue;
 
 
 public class Glue {
 
     private Gson gson;
-    private Queue<SocialEvent> eventQueue;
+    private List<SocialEvent> eventList;
 
     public Glue(FileReader reader){
         gson = new Gson();
@@ -17,11 +19,11 @@ public class Glue {
         for(int i = 0; i < eventArr.length; i++) {
             eventArr[i] = new SocialEvent(/*TODO*/);
         }
-        eventQueue = (Queue) Arrays.asList(eventArr);
+        eventList= Arrays.asList(eventArr);
 
     }
 
-    public Queue<SocialEvent> getEventQueue(){
-        return eventQueue;
+    public List<SocialEvent> getEventQueue(){
+        return eventList;
     }
 }
