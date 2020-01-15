@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     /*
     * This function is called when the user swipes right or presses
-    * the yes button to a particular event on the stack
+    * the yes button to a particular event on the queue
     */
     public boolean swipeRight(View view){
         //TODO
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         //TODO
         return true;
     }
+
 
 
 }
