@@ -17,6 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     // this stores all the events in a single list we can access later
     List<SocialEvent> eventList;
+
+    ArrayList<SocialEvent> interestedEvents;
 
     // this item will display a queue of events on the main activity
     QueuedLayout eventsQueued;
@@ -41,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         Reader reader;
         Glue data;
         BufferedInputStream buffStream;
+
+        interestedEvents = new ArrayList<SocialEvent>(); // If we implement a "save" file implement opening that here
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         eventsQueued = new QueuedLayout(this);
@@ -101,7 +107,13 @@ public class MainActivity extends AppCompatActivity {
     * the yes button to a particular event on the queue
     */
     public boolean swipeRight(View view){
-        //TODO
+        if(!eventsQueued.isEmpty()) {
+            SocialEvent temp = eventsQueued.dequeue().getSocialEvent();
+            interestedEvents.add(temp);
+            for (SocialEvent e : interestedEvents) {
+                Log.d("favorites", e.getEventTitle());
+            }
+        }
         return true;
     }
 
@@ -114,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
         //TODO
         return true;
     }
+
+
 
 
 

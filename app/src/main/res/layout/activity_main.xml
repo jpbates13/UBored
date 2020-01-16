@@ -26,6 +26,7 @@
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="104dp"
         android:backgroundTint="#3399FF"
+        android:onClick="swipeRight"
         android:text="Interested"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
