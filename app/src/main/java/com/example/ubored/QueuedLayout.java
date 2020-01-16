@@ -1,6 +1,7 @@
 package com.example.ubored;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.LinearLayout;
 
 
@@ -20,8 +21,18 @@ public class QueuedLayout extends LinearLayout {
     * Insert the SocialEvent object socialEvent to the end of the LinkedList
     * */
     public void enqueue(SocialEventTile socialEventTile){
-        sEvents.add(socialEventTile);
-        makeTopVisible();
+        SocialEvent sc = socialEventTile.getSocialEvent();
+        Log.d("enqueingTile", sc.getEventTitle());
+        if(sEvents.isEmpty())
+        {
+            sEvents.add(socialEventTile);
+        }
+        else
+        {
+            removeView(sEvents.peek());
+            sEvents.add(socialEventTile);
+        }
+        addView(sEvents.peek());
     }
 
     private void makeTopVisible(){
