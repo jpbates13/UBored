@@ -10,7 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class QueuedLayout extends LinearLayout {
 
-    private Queue<SocialEvent> sEvents = new LinkedList<>();
+    private Queue<SocialEventTile> sEvents = new LinkedList<>();
 
     public QueuedLayout(Context context) {
         super(context);
@@ -19,17 +19,28 @@ public class QueuedLayout extends LinearLayout {
     /*
     * Insert the SocialEvent object socialEvent to the end of the LinkedList
     * */
-    public void enqueue(SocialEvent socialEvent){
-        sEvents.add(socialEvent);
+    public void enqueue(SocialEventTile socialEventTile){
+        sEvents.add(socialEventTile);
+        makeTopVisible();
     }
 
+    private void makeTopVisible(){
+        if(sEvents.size()>0)
+            addView(sEvents.peek());
+    }
 
     /*
     * If the queue is not empty, remove the item at the front of the queue and return it
     * */
-    public SocialEvent dequeue(SocialEvent socialEvent){
+    public SocialEventTile dequeue(){
+        SocialEventTile tile;
         if(sEvents.size()!=0)
-            return sEvents.remove();
+        {
+            tile = sEvents.remove();
+            removeView(tile);
+            makeTopVisible();
+            return tile;
+        }
         return null;
     }
 
@@ -43,7 +54,7 @@ public class QueuedLayout extends LinearLayout {
     /*
     * Return the social event currently at the front of the queue without removing it from the queue.
     * */
-    public SocialEvent peek(){
+    public SocialEventTile peek(){
         return sEvents.peek();
     }
 

@@ -7,34 +7,37 @@
     android:background="@drawable/two"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/NotInterestedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="104dp"
+        android:backgroundTint="#3399FF"
+        android:text="Not Interested"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/interestedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="104dp"
         android:backgroundTint="#3399FF"
-        android:text="@android:string/yes"
+        android:onClick="swipeRight"
+        android:text="Interested"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="578dp"
-        tools:text="@android:string/yes" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#3399FF"
-        android:text="@android:string/no"
-        android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="260dp"
-        tools:layout_editor_absoluteY="578dp" />
+    <LinearLayout
+        android:id="@+id/eventTextDisplay"
+        android:layout_width="253dp"
+        android:layout_height="159dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="261dp"></LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

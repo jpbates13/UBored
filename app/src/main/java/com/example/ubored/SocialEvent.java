@@ -1,65 +1,78 @@
 package com.example.ubored;
 
-import android.content.ClipData;
-import android.content.Context;
-import android.graphics.Color;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.TextView;
-
+import java.text.DateFormat;
 import java.util.Date;
 
-public class SocialEvent extends TextView {
-
-    public static final int TILE_SIZE = 600;
+public class SocialEvent {
     private String eventTitle;
-    private Date startTime;
-    private Date endTime;
+    private String startTime;
+    private String endTime;
+    private String category;
 
-    public SocialEvent(Context context, String eventTitle)
+    public SocialEvent()
     {
-        super(context);
-        this.eventTitle=eventTitle;
-        setText(eventTitle);
-        setTextAlignment(TEXT_ALIGNMENT_CENTER);
-        setHeight(TILE_SIZE);
-        setWidth(TILE_SIZE);
-        setTextSize(30);
-        setBackgroundColor(Color.rgb(255, 255, 255));
+        eventTitle=null;
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-
-        if(motionEvent.getAction()==MotionEvent.ACTION_DOWN)
-        {
-            //TODO
-            View.DragShadowBuilder tmpView = new View.DragShadowBuilder(this);
-            ClipData tmpClip = ClipData.newPlainText("","");
-            startDrag(tmpClip, tmpView, this, 0);
-            return true;
-        }
-
-        return super.onTouchEvent(motionEvent);
+    public SocialEvent(String title)
+    {
+        this.eventTitle=title;
     }
 
-    public void setStart(Date startTime)
+    public SocialEvent(String title, String startTime)
     {
+        this.eventTitle=title;
         this.startTime=startTime;
     }
 
-    public Date getStartTime()
+    public SocialEvent(String title, String startTime, String endTime)
+    {
+        this.eventTitle=title;
+        this.startTime=startTime;
+        this.endTime=endTime;
+    }
+
+    public SocialEvent(String title, String startTime, String endTime, String category)
+    {
+        this.eventTitle=title;
+        this.startTime=startTime;
+        this.endTime=endTime;
+        this.category=category;
+    }
+
+    public String getEventTitle()
+    {
+        return eventTitle;
+    }
+
+    public String getStartTime()
     {
         return startTime;
     }
 
-    public void setEnd(Date endTime)
+    public String getEndTime()
+    {
+        return endTime;
+    }
+
+    public String getCategory()
+    {
+        return category;
+    }
+
+    public void setCategory(String category)
+    {
+        this.category=category;
+    }
+
+    public void setStartTime(String startTime)
+    {
+        this.startTime=startTime;
+    }
+
+    public void setEndTime(String endTime)
     {
         this.endTime=endTime;
     }
 
-    public Date getEndTime()
-    {
-        return endTime;
-    }
 }
