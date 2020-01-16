@@ -1,11 +1,12 @@
 package com.example.ubored;
 
+import java.text.DateFormat;
 import java.util.Date;
 
 public class SocialEvent {
     private String eventTitle;
-    private Date startTime;
-    private Date endTime;
+    private String startTime;
+    private String endTime;
     private String category;
 
     public SocialEvent()
@@ -18,20 +19,20 @@ public class SocialEvent {
         this.eventTitle=title;
     }
 
-    public SocialEvent(String title, Date startTime)
+    public SocialEvent(String title, String startTime)
     {
         this.eventTitle=title;
         this.startTime=startTime;
     }
 
-    public SocialEvent(String title, Date startTime, Date endTime)
+    public SocialEvent(String title, String startTime, String endTime)
     {
         this.eventTitle=title;
         this.startTime=startTime;
         this.endTime=endTime;
     }
 
-    public SocialEvent(String title, Date startTime, Date endTime, String category)
+    public SocialEvent(String title, String startTime, String endTime, String category)
     {
         this.eventTitle=title;
         this.startTime=startTime;
@@ -44,12 +45,12 @@ public class SocialEvent {
         return eventTitle;
     }
 
-    public Date getStartTime()
+    public String getStartTime()
     {
         return startTime;
     }
 
-    public Date getEndTime()
+    public String getEndTime()
     {
         return endTime;
     }
@@ -64,12 +65,12 @@ public class SocialEvent {
         this.category=category;
     }
 
-    public void setStartTime( Date startTime)
+    public void setStartTime(String startTime)
     {
         this.startTime=startTime;
     }
 
-    public void setEndTime( Date endTime )
+    public void setEndTime(String endTime)
     {
         this.endTime=endTime;
     }

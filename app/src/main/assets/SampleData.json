@@ -1,34 +1,32 @@
-{
-  "events": [
+[
     {
-      "title": "Ice Skating",
+      "eventTitle": "Ice Skating",
       "category": "Sports",
-      "startTime": "1/15/2020 5:00 pm",
-      "endTime": "1/15/2020 7:00 pm"
+      "startTime": "1/15/2020 5:00",
+      "endTime": "1/15/2020 7:00"
     },
     {
-      "title": "Movie Night",
+      "eventTitle": "Movie Night",
       "category": "Entertainment",
-      "startTime": "1/16/2020 5:00 pm",
-      "endTime": "1/16/2020 7:00 pm"
+      "startTime": "1/16/2020 5:00",
+      "endTime": "1/16/2020 7:00"
     },
     {
-      "title": "Sushi making class",
+      "eventTitle": "Sushi making class",
       "category": "Food",
-      "startTime": "1/17/2020 5:00 pm",
-      "endTime": "1/17/2020 7:00 pm"
+      "startTime": "1/17/2020 5:00",
+      "endTime": "1/17/2020 7:00"
     },
     {
-      "title": "Pottery Making",
+      "eventTitle": "Pottery Making",
       "category": "Arts and Crafts",
-      "startTime": "1/18/2020 5:00 pm",
-      "endTime": "1/18/2020 7:00 pm"
+      "startTime": "1/18/2020 5:00",
+      "endTime": "1/18/2020 7:00"
     },
     {
-      "title": "5K Run",
+      "eventTitle": "5K Run",
       "category": "Sports",
-      "startTime": "1/19/2020 5:00 pm",
-      "endTime": "1/19/2020 7:00 pm"
+      "startTime": "1/19/2020 5:00",
+      "endTime": "1/19/2020 7:00"
     }
-  ]
-}
+]

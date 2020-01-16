@@ -33,21 +33,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FileReader reader;
+        Reader reader;
         Glue data;
         BufferedInputStream buffStream;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         try {
-            reader = (FileReader) new InputStreamReader(getAssets().open("sampleData.json"));
+            reader = new InputStreamReader(getAssets().open("SampleData.json"));
             // pull the data from the JSON file and store the data in queue.
             // TODO: process the data from sampleData.json into the Glue object
             data = new Glue(reader);
 
         }
         catch(IOException e){
-            Log.d("openingJson", "unable to open sampleData.json");
+            Log.d("openingJson", "unable to open sampleData.json " + e);
         }
 
 

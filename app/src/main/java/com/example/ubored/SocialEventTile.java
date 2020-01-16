@@ -40,22 +40,22 @@ public class SocialEventTile extends AppCompatTextView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void setStart(Date startTime)
+    public void setStart(String startTime)
     {
         this.socialEvent.setStartTime(startTime);
     }
 
-    public Date getStartTime()
+    public String getStartTime()
     {
         return socialEvent.getStartTime();
     }
 
-    public void setEnd(Date endTime)
+    public void setEnd(String endTime)
     {
         this.socialEvent.setEndTime(endTime);
     }
 
-    public Date getEndTime()
+    public String getEndTime()
     {
         return socialEvent.getEndTime();
     }
