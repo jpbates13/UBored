@@ -21,14 +21,26 @@ public class QueuedLayout extends LinearLayout {
     * */
     public void enqueue(SocialEventTile socialEventTile){
         sEvents.add(socialEventTile);
+        makeTopVisible();
+    }
+
+    private void makeTopVisible(){
+        if(sEvents.size()>0)
+            addView(sEvents.peek());
     }
 
     /*
     * If the queue is not empty, remove the item at the front of the queue and return it
     * */
-    public SocialEventTile dequeue(SocialEventTile socialEventTile){
+    public SocialEventTile dequeue(){
+        SocialEventTile tile;
         if(sEvents.size()!=0)
-            return sEvents.remove();
+        {
+            tile = sEvents.remove();
+            removeView(tile);
+            makeTopVisible();
+            return tile;
+        }
         return null;
     }
 
