@@ -49,7 +49,7 @@ public class QueuedLayout extends LinearLayout {
         {
             tile = sEvents.remove();
             removeView(tile);
-            makeTopVisible();
+            addView(sEvents.peek());
             return tile;
         }
         return null;
