@@ -23,6 +23,7 @@ public class SocialEventTile extends AppCompatTextView {
         setWidth(TILE_SIZE);
         setTextSize(30);
         setBackgroundColor(Color.rgb(255, 255, 255));
+        setPadding(50, 50,50,50);
     }
 
     @Override
@@ -38,6 +39,10 @@ public class SocialEventTile extends AppCompatTextView {
         }
 
         return super.onTouchEvent(motionEvent);
+    }
+
+    public SocialEvent getSocialEvent(){
+        return socialEvent;
     }
 
     public void setStart(String startTime)
