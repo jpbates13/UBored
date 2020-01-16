@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     // this item will display a queue of events on the main activity
     QueuedLayout eventsQueued;
 
+
     /*
      * TODO : if we have time, also create a priority queue of events by category
      */
@@ -68,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
             // if the events have been loaded into the eventList, put them into the QueuedLayout
             LinearLayout verticalLayout = (LinearLayout) findViewById(R.id.eventTextDisplay);
             verticalLayout.addView(eventsQueued);
-            eventsQueued.enqueue(new SocialEventTile(this, eventList.get(0)));
+            for(int i=0; i<eventList.size();i++)
+                eventsQueued.enqueue(new SocialEventTile(this, eventList.get(i)));
         }
         catch(NullPointerException n){
             Log.d("placingTiles", "unable to place the event tiles");

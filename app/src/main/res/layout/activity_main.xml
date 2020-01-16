@@ -34,10 +34,12 @@
 
     <LinearLayout
         android:id="@+id/eventTextDisplay"
-        android:layout_width="253dp"
-        android:layout_height="159dp"
+        android:layout_width="196dp"
+        android:layout_height="118dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="276dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="261dp"></LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
