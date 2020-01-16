@@ -94,11 +94,11 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
-
     /*
     * This function is called when the user swipes left or presses
     * the no button to a particular event on the stack
     */
+
     public boolean swipeLeft(View view){
         //TODO
         return true;
