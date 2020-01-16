@@ -3,14 +3,17 @@ package com.example.ubored;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.AssetManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.io.BufferedInputStream;
 import java.io.FileReader;
@@ -25,6 +28,8 @@ import java.util.logging.SocketHandler;
 
 public class MainActivity extends AppCompatActivity {
 
+    private float x1,x2;
+    static final int MIN_DISTANCE = 500;
     // this stores all the events in a single list we can access later
     List<SocialEvent> eventList;
 
@@ -32,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     // this item will display a queue of events on the main activity
     QueuedLayout eventsQueued;
-
+    final String NO_MORE_EVENTS_TEXT = "No more events. Check back later.";
 
     /*
      * TODO : if we have time, also create a priority queue of events by category
@@ -52,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         eventsQueued = new QueuedLayout(this);
 
+        TextView emptyText = findViewById(R.id.emptyText);
+        emptyText.setText("");
+
         try {
             reader = new InputStreamReader(getAssets().open("SampleData.json"));
             // pull the data from the JSON file and store the data in an ArrayList.
@@ -67,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         try{
             // if the events have been loaded into the eventList, put them into the QueuedLayout
-            LinearLayout verticalLayout = (LinearLayout) findViewById(R.id.eventTextDisplay);
+            ViewGroup verticalLayout = findViewById(R.id.touchZone);
             verticalLayout.addView(eventsQueued);
             for(int i=0; i<eventList.size();i++)
                 eventsQueued.enqueue(new SocialEventTile(this, eventList.get(i)));
@@ -76,13 +84,35 @@ public class MainActivity extends AppCompatActivity {
             Log.d("placingTiles", "unable to place the event tiles");
         }
 
+        //findViewById(R.id.touchZone).setBackgroundColor(Color.CYAN);
+        findViewById(R.id.accept).setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                if (event.getAction() == DragEvent.ACTION_DROP && event.getLocalState() instanceof SocialEventTile) {
+                    swipeRight(eventsQueued);
+                }
+
+                return true;
+            }
+        });
+        findViewById(R.id.reject).setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                if (event.getAction() == DragEvent.ACTION_DROP && event.getLocalState() instanceof SocialEventTile) {
+                    swipeLeft(eventsQueued);
+                }
+
+                return true;
+            }
+        });
+
     }
 
     private class TouchListener implements View.OnTouchListener{
 
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            //TODO
+
             return true;
         }
     }
@@ -103,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         if(!eventsQueued.isEmpty()){
             eventsQueued.dequeue();
         }
+        checkEmpty();
         return true;
     }
 
@@ -118,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("favorites", e.getEventTitle());
             }
         }
+        checkEmpty();
         return true;
     }
 
@@ -131,8 +163,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
-
-
-
+    public boolean checkEmpty(){
+        if(eventsQueued.isEmpty()){
+            TextView emptyText = findViewById(R.id.emptyText);
+            emptyText.setText(NO_MORE_EVENTS_TEXT);
+        }
+        return true;
+    }
 }

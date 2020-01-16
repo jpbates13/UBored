@@ -3,6 +3,7 @@ package com.example.ubored;
 import android.content.ClipData;
 import android.content.Context;
 import android.graphics.Color;
+import android.print.PrintAttributes;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -23,7 +24,7 @@ public class SocialEventTile extends AppCompatTextView {
         setWidth(TILE_SIZE);
         setTextSize(30);
         setBackgroundColor(Color.rgb(255, 255, 255));
-        setPadding(50, 50,0,0);
+        setPadding(0, 0,0,0);
     }
 
     @Override

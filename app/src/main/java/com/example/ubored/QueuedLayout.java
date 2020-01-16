@@ -5,14 +5,15 @@ import android.util.Log;
 import android.widget.LinearLayout;
 
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class QueuedLayout extends LinearLayout {
 
-    private Queue<SocialEventTile> sEvents = new LinkedList<>();
-
+    //private Queue<SocialEventTile> sEvents = new LinkedList<>();
+    private Deque<SocialEventTile> sEvents = new LinkedList<>();
     public QueuedLayout(Context context) {
         super(context);
     }
@@ -76,6 +77,11 @@ public class QueuedLayout extends LinearLayout {
     * */
     public boolean isEmpty(){
         return sEvents.isEmpty();
+    }
+
+    public boolean putBack(SocialEventTile e){
+        sEvents.addFirst(e);
+        return true;
     }
 
 }
