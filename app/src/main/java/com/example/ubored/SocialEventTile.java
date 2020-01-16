@@ -5,26 +5,19 @@ import android.content.Context;
 import android.graphics.Color;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
-
+import androidx.appcompat.widget.AppCompatTextView;
 import java.util.Date;
 
-public class SocialEventTile extends TextView {
+public class SocialEventTile extends AppCompatTextView {
 
     public static final int TILE_SIZE = 600;
-    private String eventTitle;
-    private Date startTime;
-    private Date endTime;
-    private String category;
+    private SocialEvent socialEvent;
 
     public SocialEventTile(Context context, SocialEvent socialEvent)
     {
         super(context);
-        this.eventTitle=socialEvent.getEventTitle();
-        this.startTime = socialEvent.getStartTime();
-        this.endTime=socialEvent.getEndTime();
-        this.category=socialEvent.getCategory();
-        setText(this.eventTitle);
+        this.socialEvent = socialEvent;
+        setText(this.socialEvent.getEventTitle());
         setTextAlignment(TEXT_ALIGNMENT_CENTER);
         setHeight(TILE_SIZE);
         setWidth(TILE_SIZE);
@@ -49,31 +42,31 @@ public class SocialEventTile extends TextView {
 
     public void setStart(Date startTime)
     {
-        this.startTime=startTime;
+        this.socialEvent.setStartTime(startTime);
     }
 
     public Date getStartTime()
     {
-        return startTime;
+        return socialEvent.getStartTime();
     }
 
     public void setEnd(Date endTime)
     {
-        this.endTime=endTime;
+        this.socialEvent.setEndTime(endTime);
     }
 
     public Date getEndTime()
     {
-        return endTime;
+        return socialEvent.getEndTime();
     }
 
     public void setCategory(String category)
     {
-        this.category=category;
+        this.socialEvent.setCategory(category);
     }
 
     public String getCategory()
     {
-        return category;
+        return socialEvent.getCategory();
     }
 }

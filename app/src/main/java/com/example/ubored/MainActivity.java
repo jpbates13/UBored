@@ -2,21 +2,53 @@ package com.example.ubored;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+
+import java.io.BufferedInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class MainActivity extends AppCompatActivity {
 
+    // this stores all the events in a single list we can access later
+    ArrayList<SocialEvent> eventList;
 
+    // this item will display a queue of events on the main activity
+    QueuedLayout eventsQueued;
+
+    /*
+     * TODO : if we have time, also create a priority queue of events by category
+     */
+    PriorityQueue<SocialEvent> preferredEvents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FileReader reader;
+        Glue data;
+        BufferedInputStream buffStream;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // pull the data from the JSON file and store the data in queue.
+        try {
+            reader = (FileReader) new InputStreamReader(getAssets().open("sampleData.json"));
+            // pull the data from the JSON file and store the data in queue.
+            // TODO: process the data from sampleData.json into the Glue object
+            data = new Glue(reader);
+
+        }
+        catch(IOException e){
+            Log.d("openingJson", "unable to open sampleData.json");
+        }
 
 
     }

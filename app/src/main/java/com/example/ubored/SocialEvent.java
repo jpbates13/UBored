@@ -8,6 +8,11 @@ public class SocialEvent {
     private Date endTime;
     private String category;
 
+    public SocialEvent()
+    {
+        eventTitle=null;
+    }
+
     public SocialEvent(String title)
     {
         this.eventTitle=title;

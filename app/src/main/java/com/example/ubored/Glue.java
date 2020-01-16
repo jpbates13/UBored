@@ -15,6 +15,8 @@ public class Glue {
 
     public Glue(FileReader reader){
         gson = new Gson();
+        // TODO: Let's use an ArrayList<SocialEvent> object here instead
+
         SocialEvent[] eventArr = gson.fromJson(reader, SocialEvent[].class);
         for(int i = 0; i < eventArr.length; i++) {
             eventArr[i] = new SocialEvent(/*TODO*/);

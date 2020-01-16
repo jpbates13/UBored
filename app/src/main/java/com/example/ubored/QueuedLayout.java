@@ -23,7 +23,6 @@ public class QueuedLayout extends LinearLayout {
         sEvents.add(socialEventTile);
     }
 
-
     /*
     * If the queue is not empty, remove the item at the front of the queue and return it
     * */
