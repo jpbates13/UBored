@@ -9,6 +9,7 @@ import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import java.io.BufferedInputStream;
 import java.io.FileReader;
@@ -16,12 +17,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
+import java.util.logging.SocketHandler;
 
 public class MainActivity extends AppCompatActivity {
 
     // this stores all the events in a single list we can access later
-    ArrayList<SocialEvent> eventList;
+    List<SocialEvent> eventList;
 
     // this item will display a queue of events on the main activity
     QueuedLayout eventsQueued;
@@ -38,18 +41,30 @@ public class MainActivity extends AppCompatActivity {
         BufferedInputStream buffStream;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        eventsQueued = new QueuedLayout(this);
 
         try {
             reader = new InputStreamReader(getAssets().open("SampleData.json"));
-            // pull the data from the JSON file and store the data in queue.
-            // TODO: process the data from sampleData.json into the Glue object
+            // pull the data from the JSON file and store the data in an ArrayList.
             data = new Glue(reader);
+            eventList = data.getEventQueue();
 
+//            for( SocialEvent e : eventList)
+//                Log.d("mainEventList", e.getEventTitle());
         }
         catch(IOException e){
             Log.d("openingJson", "unable to open sampleData.json " + e);
         }
 
+        try{
+            // if the events have been loaded into the eventList, put them into the QueuedLayout
+            LinearLayout verticalLayout = (LinearLayout) findViewById(R.id.eventTextDisplay);
+            verticalLayout.addView(eventsQueued);
+            eventsQueued.enqueue(new SocialEventTile(this, eventList.get(0)));
+        }
+        catch(NullPointerException n){
+            Log.d("placingTiles", "unable to place the event tiles");
+        }
 
     }
 
