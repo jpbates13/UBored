@@ -100,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
     */
 
     public boolean swipeLeft(View view){
-        //TODO
+        if(!eventsQueued.isEmpty()){
+            eventsQueued.dequeue();
+        }
         return true;
     }
 
