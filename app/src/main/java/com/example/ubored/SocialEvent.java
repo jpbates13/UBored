@@ -1,9 +1,10 @@
 package com.example.ubored;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class SocialEvent {
+public class SocialEvent implements Serializable {
     private String eventTitle;
     private String startTime;
     private String endTime;

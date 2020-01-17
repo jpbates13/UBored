@@ -2,9 +2,11 @@ package com.example.ubored;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.logging.SocketHandler;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -151,6 +156,16 @@ public class MainActivity extends AppCompatActivity {
         }
         checkEmpty();
         return true;
+    }
+
+    public void gotoList(View view)
+    {
+
+        Intent i = new Intent(MainActivity.this, DisplayInterested.class);
+        Log.d("passing", Integer.toString(interestedEvents.size()));
+        i.putExtra("interested",interestedEvents);
+        startActivity(i);
+
     }
 
     /*
