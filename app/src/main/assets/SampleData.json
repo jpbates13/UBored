@@ -28,5 +28,12 @@
       "category": "Sports",
       "startTime": "1/19/2020 5:00",
       "endTime": "1/19/2020 7:00"
+    },
+    {
+      "eventTitle": "Yoga",
+      "category": "Sports",
+      "startTime": "1/20/2020 8:00",
+      "endTime": "1/20/2020 9:00"
     }
+
 ]
