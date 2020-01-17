@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.content.Context;
 import android.graphics.Color;
 import android.print.PrintAttributes;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -29,7 +30,6 @@ public class SocialEventTile extends AppCompatTextView {
 
     @Override
     public boolean onTouchEvent(MotionEvent motionEvent) {
-
         if(motionEvent.getAction()==MotionEvent.ACTION_DOWN)
         {
             //TODO
