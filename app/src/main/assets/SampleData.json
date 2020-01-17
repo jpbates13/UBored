@@ -64,5 +64,29 @@
     "category": "Sports",
     "startTime": "1/25/2020 8:00",
     "endTime": "1/25/2020 9:00"
+  },
+  {
+    "eventTitle": "Easter Egg Hunt",
+    "category": "entertainment",
+    "startTime": "1/26/2020 8:00",
+    "endTime": "1/26/2020 9:00"
+  },
+  {
+    "eventTitle": "How to get rid of extra eggs",
+    "category": "arts and crafts",
+    "startTime": "1/27/2020 8:00",
+    "endTime": "1/27/2020 9:00"
+  },
+  {
+    "eventTitle": "Valentines Day Party",
+    "category": "entertainment",
+    "startTime": "2/14/2020 8:00",
+    "endTime": "2/14/2020 9:00"
+  },
+  {
+    "eventTitle": "Discount Chocolate Sale",
+    "category": "Shopping",
+    "startTime": "2/15/2020 8:00",
+    "endTime": "2/15/2020 9:00"
   }
 ]
