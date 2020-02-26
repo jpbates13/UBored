@@ -2,6 +2,7 @@ package com.example.ubored;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     // this item will display a queue of events on the main activity
     QueuedLayout eventsQueued;
     final String NO_MORE_EVENTS_TEXT = "No more events. Check back later.";
+    String lat;
+    String lng;
 
     /*
      * TODO : if we have time, also create a priority queue of events by category
@@ -62,31 +65,21 @@ public class MainActivity extends AppCompatActivity {
         TextView emptyText = findViewById(R.id.emptyText);
         emptyText.setText("");
 
+
+        ViewGroup verticalLayout = findViewById(R.id.touchZone);
         try {
             reader = new InputStreamReader(getAssets().open("SampleData.json"));
             // pull the data from the JSON file and store the data in an ArrayList.
-            data = new Glue(reader);
+            // data = new Glue(reader);
+            data = new Glue(this, reader, verticalLayout, eventsQueued, lat, lng);
             eventList = data.getEventQueue();
-
 //            for( SocialEvent e : eventList)
 //                Log.d("mainEventList", e.getEventTitle());
         }
         catch(IOException e){
-            Log.d("openingJson", "unable to open sampleData.json " + e);
+            Log.d("openingJson", "unable to get json response " + e);
         }
 
-        try{
-            // if the events have been loaded into the eventList, put them into the QueuedLayout
-            ViewGroup verticalLayout = findViewById(R.id.touchZone);
-            verticalLayout.addView(eventsQueued);
-            for(int i=0; i<eventList.size();i++)
-                eventsQueued.enqueue(new SocialEventTile(this, eventList.get(i)));
-        }
-        catch(NullPointerException n){
-            Log.d("placingTiles", "unable to place the event tiles");
-        }
-
-        //findViewById(R.id.touchZone).setBackgroundColor(Color.CYAN);
         findViewById(R.id.accept).setOnDragListener(new View.OnDragListener() {
             @Override
             public boolean onDrag(View v, DragEvent event) {
@@ -233,4 +226,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 }

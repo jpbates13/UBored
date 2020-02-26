@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:id="@+id/accept"
-        android:layout_width="50dp"
-        android:layout_height="200dp"
+        android:layout_width="71dp"
+        android:layout_height="798dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="281dp"
@@ -85,8 +85,8 @@
 
     <LinearLayout
         android:id="@+id/reject"
-        android:layout_width="50dp"
-        android:layout_height="200dp"
+        android:layout_width="71dp"
+        android:layout_height="809dp"
         android:layout_marginTop="234dp"
         android:layout_marginBottom="297dp"
         android:orientation="vertical"
